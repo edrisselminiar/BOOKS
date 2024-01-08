@@ -31,20 +31,7 @@
           <li><a class="block px-0 py-3 mb-2 border-b-2 border-transparent lg:p-4 hover:border-indigo-400 lg:mb-0" href="#">Support</a></li>
           <li><a class="block px-0 py-3 mb-2 border-b-2 border-transparent lg:p-4 hover:border-indigo-400 lg:mb-0" href="#">Support</a></li>
 
-          <div>
-            <div class="dropdown">
-              <button class="dropbtn flex flex-wrap">Dropdown
-                <svg class="w-2 h-2.5 mt-2 ml-1 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg>
-              </button>
-                <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
-                </div>
-            </div>
-          </div>
+          
 
          
 
@@ -53,7 +40,34 @@
                 <div>
                     @auth
                    
-                        <a href="{{ url('/dashboard') }}" >Dashboard</a>
+                        <!-- <a href="{{ url('/dashboard') }}" > -->
+                              <div class="lg:ml-24">
+                                <div class="dropdown">
+                                  <button class="dropbtn flex flex-wrap">{{ Auth::user()->name }}
+                                    <svg class="w-2 h-2.5 mt-2 ml-1 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                                    </svg>
+                                  </button>
+                                    <div class="dropdown-content">
+                                      <x-dropdown-link :href="route('profile.edit')">
+                                                {{ __('Profile') }}
+                                      </x-dropdown-link>
+
+                                  
+                                        <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+
+                                                <x-dropdown-link :href="route('logout')"
+                                                        onclick="event.preventDefault();
+                                                                    this.closest('form').submit();">
+                                                    {{ __('Log Out') }}
+                                                </x-dropdown-link>
+                                          </form>
+                                  
+                                    </div>
+                                </div>
+                              </div>
+                            <!-- </a> -->
                     @else
 
                         <a href="{{ route('login') }}" >
@@ -78,7 +92,8 @@
     </div>
   </header>
 
- 
+
+
 
 
 

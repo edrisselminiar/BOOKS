@@ -65,7 +65,7 @@
 
       <div class="mt-3 text-xs flex justify-between items-center text-[#002D74]">
         <p>I have an account?</p>
-        <a href="{{ route('register') }}">
+        <a href="{{ route('login') }}">
         <button class="sm:px-5 sm:py-3  py-1 px-2 bg-[#002D74] text-white border rounded-xl hover:scale-110 duration-300">
             Sign In
         </button></a>
@@ -79,8 +79,3 @@
 
 </body>
 </html>
-
-
-
-
-
