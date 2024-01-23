@@ -56,3 +56,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+
+require __DIR__.'/adminauth.php';
