@@ -59,8 +59,12 @@ require __DIR__.'/auth.php';
 
 
 
+
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
+    
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+Route::resource('admin/books', BooksController::class);
+
 
 require __DIR__.'/adminauth.php';
