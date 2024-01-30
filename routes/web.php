@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\AdminBooksController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -64,7 +65,18 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
     
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
-Route::resource('admin/books', BooksController::class);
+// Route::resource('admin/books', BooksController::class);
+Route::resource('admin/books', AdminBooksController::class);
+Route::resource('/book', BooksController::class);
+
+Route::get('books/getDownload/{id}', [AdminBooksController::class, 'getDownload'])->name('books.getDownload');
+Route::get('books/search', [AdminBooksController::class, 'search'])->name('books.search');
+
+
+// Route::get('books/getDownload/{id}', [AdminBooksController::class, 'getDownload']);
+
+
+
 
 
 require __DIR__.'/adminauth.php';
