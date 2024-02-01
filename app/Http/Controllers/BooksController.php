@@ -14,10 +14,20 @@ class BooksController extends Controller
     public function index()
     {
         return view('book', [
-            'books' => Book::latest()->paginate(10)
+            'books' => Book::latest()->paginate(12)
         ]);
 
     }
+
+    public function getDownload($id)
+    {
+        $book = Book::findOrFail($id);
+        $filePath = public_path('books/pdf/' . $book->pdf);
+        return response()->download($filePath, $book->pdf);
+
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -38,9 +48,11 @@ class BooksController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(book $book)
     {
-        //
+        // return $book ;
+        return view('showbook',compact('book'));
+
     }
 
     /**
@@ -66,4 +78,5 @@ class BooksController extends Controller
     {
         //
     }
+
 }

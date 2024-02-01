@@ -13,7 +13,7 @@ class AdminBooksController extends Controller
     public function index()
     {
         return view('admin.books', [
-            'books' => Book::latest()->paginate(10)
+            'books' => Book::latest()->paginate(5)
         ]);
     }
 
@@ -35,7 +35,10 @@ class AdminBooksController extends Controller
             'description' => 'required',
             'img' => 'required',
             'pdf' => 'required',
-
+            'author' => 'required',
+            'type' => 'required',
+            'number' => 'required',
+            'size' => 'required',
         ]);
         
         $image = $request->file('img');
@@ -49,6 +52,10 @@ class AdminBooksController extends Controller
         $form_data = array(
             'title' => $request->input('title'),
             'description' => $request->input('description'),
+            'author' => $request->input('author'),
+            'type' => $request->input('type'),
+            'number' => $request->input('number'),
+            'size' => $request->input('size'),
             'img' => $new_name,
             'pdf' => $new_name1,
         );
@@ -99,6 +106,10 @@ class AdminBooksController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'number' => 'required',
+            'type' => 'required',
+            'author' => 'required',
+            'size' => 'required',
             'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'pdf' => 'nullable|file|mimes:pdf|max:10240',
 
@@ -120,6 +131,10 @@ class AdminBooksController extends Controller
         $form_data = array(
             'title' => $request->input('title'),
             'description' => $request->input('description'),
+            'size' => $request->input('size'),
+            'type' => $request->input('type'),
+            'author' => $request->input('author'),
+            'number' => $request->input('number'),
             'img' => $new_name,
             'pdf' => $new_name1,
         );

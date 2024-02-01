@@ -30,12 +30,28 @@
                             @method('PUT')
 
                         <div class="mb-5 w-full ">
-                            <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update title book</label>
-                            <input type="text" name="title" value="{{ $book->title }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="book" required />
+                            <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update name book</label>
+                            <input type="text" name="title" value="{{ $book->title }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name book" required />
+                        </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update author book</label>
+                            <input type="text" name="author" value="{{ $book->author }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="author book" required />
+                        </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update type book</label>
+                            <input type="text" name="type" value="{{ $book->type }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="type book" required />
+                        </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update number book</label>
+                            <input type="number" name="number" value="{{ $book->number }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="number book" required />
+                        </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update size book</label>
+                            <input type="number" name="size" value="{{ $book->size }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="size book" required />
                         </div>
                         <div class="mb-5 w-full">
                             <label for="description" class="font-bold w-full block mb-2 text-sm  text-gray-900 dark:text-white">Update description book</label>
-                            <textarea id="description" name="description" rows="4" class="block p-2.5 w-full h-20 t-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="description ...">
+                            <textarea id="description" name="description" rows="4" class="block p-2.5 w-full h-20 t-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="description book ...">
                                 {{ $book->description }}
                             </textarea>
                         </div>

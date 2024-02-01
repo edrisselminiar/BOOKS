@@ -7,7 +7,7 @@
   @vite('resources/css/tailwind.css')
  
 </head>
-<body class="antialiased  bg-gray-100">
+<body class="antialiased  bg-gray-200">
 
   <header class="fixed w-[100%] flex flex-wrap items-center px-6 py-2 bg-white lg:px-16 lg:py-0 z-50">
 
@@ -93,50 +93,58 @@
 
 
 
-  <div class="container mx-auto bg-gray-100 px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28">
-  <div class="absolute inset-0">
-    <div class="h-1/3 sm:h-2/3"></div>
-  </div>
-
-
-  <div class="relative">
-    <div class="text-center">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Column me neatly.</h2>
-      <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
-        This is your life and it's ending one minute @ a time...</p>
+  <div class="container mx-auto bg-gray-200 px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28">
+    <div class="absolute inset-0">
+      <div class="h-1/3 sm:h-2/3"></div>
     </div>
-    <div  class="mt-12 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6  gap-4"
-    >
-      @foreach ($books as $book)
-        <div class="flex flex-col overflow-hidden rounded-lg shadow-xl shadow-inherit bg-white  transform transition duration-500 ease-in-out hover:scale-105">
-          <div class="flex-shrink-0 p-2">
-           <img src="/books/img/{{ $book->img }}"  class="aspect-w-16 aspect-h-9 w-full object-cover rounded-md" alt=""> 
-          </div>
-          <div class="flex flex-1 flex-col justify-between bg-white ">
-            <div class="flex-1">
-              <a href="#" class="block">
-                <p class=" text-xs lg:text-xs  md:text-xs font-semibold text-gray-900 h-9 mt-2 ml-2 mr-2">{{ $book->title }}</p>
-              </a>
-            </div>
-          </div>
+
+
+      <div class="relative">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Column me neatly.</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
+            This is your life and it's ending one minute @ a time...</p>
         </div>
-      @endforeach
 
-    </div>
+        <div  class="mt-12 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6  gap-4"
+        >
+
+          @foreach ($books as $book)      
+              <div class="flex flex-col overflow-hidden rounded-lg shadow-xl shadow-inherit bg-white  transform transition duration-500 ease-in-out hover:scale-105">
+                <div class="flex-shrink-0 px-2 pt-2">
+                <img src="/books/img/{{ $book->img }}"  class="aspect-w-16 aspect-h-9 w-full object-cover rounded-md" alt=""> 
+                </div>
+                <div class="flex flex-1 flex-col justify-between bg-white mx-2">
+                  <div class="flex-1 flex justify-between  mt-1">
+                    <a type="button" href="{{ route('book.show',$book->id) }}" class="flex">
+                        <p class=" text-xs lg:text-xs  md:text-xs font-semibold text-gray-900 h-6 my-1 mx-1">{{ $book->title }}</p>
+                        <a href="{{ route('book.show',$book->id) }}" class=" bg-blue-600 hover:bg-blue-400 text-white rounded text-xs h-6 px-1 py-1 ml-1 mb-1 my-1">
+                              Dawnload
+                        </a>
+                      
+                    </a>
+                  </div>
+                </div>
+              </div>
+          @endforeach
+
+        </div>
+        <div class="mt-4 ml-2 mr-2">
+          {{ $books->links('pagination::tailwind') }}
+
+        </div>
   </div>
-
-
-
 
 
 
 </div>
 
-  
 
 
 
-  </body>
+
+</body>
 </html>
+
 
 

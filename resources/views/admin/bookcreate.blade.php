@@ -24,9 +24,26 @@
                     <form class="px-8 mt-2  mb-10 w-full" action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data" >
                             @csrf
                         <div class="mb-5 w-full ">
-                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">title book</label>
-                            <input type="text" name="title" id="text" class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="book" required>
+                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">name book</label>
+                            <input type="text" name="title" id="text" class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name book" required>
                         </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">author book</label>
+                            <input type="author" name="author" id="author" class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="author book" required>
+                        </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">type book</label>
+                            <input type="type" name="type" id="type" class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="type book" required>
+                        </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">number of pages</label>
+                            <input type="number" name="number" id="number" class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="number of pages" required>
+                        </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">book size</label>
+                            <input type="number" name="size" id="size" class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="book size" required>
+                        </div>
+
                         <div class="mb-5 w-full">
                             <label for="description" class="w-full block mb-2 text-sm font-medium text-gray-900 dark:text-white">description book</label>
                             <textarea id="description" name="description" rows="4" class="block p-2.5 w-full h-20 t-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="description ..."></textarea>
