@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Book;
+use PDF;
 
 
 class BooksController extends Controller
@@ -32,9 +33,11 @@ class BooksController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function readonline($id)
     {
-        //
+        $book = Book::findOrFail($id);
+        return view('pdfbook', compact('book'));
+      
     }
 
     /**
@@ -42,7 +45,12 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "hello";
+    }
+
+    public function search(Request $request)
+    {
+        return "hello";
     }
 
     /**
@@ -50,10 +58,23 @@ class BooksController extends Controller
      */
     public function show(book $book)
     {
-        // return $book ;
-        return view('showbook',compact('book'));
+        $book = Book::with('reviews')->find($book->id);
+        $averageRating = $book->averageRating();
+        
+        return view('showbook',compact('book' , 'averageRating'));
 
     }
+
+
+    
+    // public function search()
+    // {
+    //     return "hello";
+    //     $search = $request->input('search'); // get the search term from the request
+    //     $books = Book::where('title', 'like', '%'.$search.'%')->get(); // get the posts that match the search term
+    //     return view('search', ['books' => $books]); // return the view with the posts
+    // }
+
 
     /**
      * Show the form for editing the specified resource.

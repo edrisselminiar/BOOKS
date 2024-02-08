@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\CbookController;
 use App\Http\Controllers\AdminBooksController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,30 +18,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::controller(BooksController::class)->group(function () {
+        Route::get('/', function () {
+            return view('welcome');
+        });
+    Route::get('/book','index');
+    Route::get('/book/{book}','show');
+    Route::resource('/book', BooksController::class);
+    Route::get('book/getDownload/{id}','getDownload')->name('book.getDownload');
+    Route::get('book/readonline/{id}','readonline')->name('book.readonline');
+    });
 
-
-Route::get('/book',[BooksController::class,'index']);
-Route::get('/book/{book}', [BooksController::class, 'show']);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Route::get('/searchbook', [CbookController::class, 'search'])->name('searchbook');
+    Route::get('/homme', [CbookController::class, 'index'])->name('homme');
+    Route::get('setlocale/{locale}', [CbookController::class, 'setLocale']);
+    // Route::get('setlocale/{locale}', 'App\Http\Controllers\LocaleController@setLocale');
+    
+    
+    Route::post('/books/{book}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    // Route::post('/books/{book}/reviews', 'ReviewController@store')->name('reviews.store');
 
 
 
@@ -60,27 +57,12 @@ require __DIR__.'/auth.php';
 
 
 
-
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-    
+        return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 Route::resource('admin/books', AdminBooksController::class)->middleware(['auth:admin', 'verified']);
 Route::get('books/getDownload/{id}', [AdminBooksController::class, 'getDownload'])->middleware(['auth:admin', 'verified'])->name('books.getDownload');
-// ->name('books.getDownload');
-Route::get('books/search', [AdminBooksController::class, 'search'])->name('books.search');
-
-
-Route::resource('/book', BooksController::class);
-
-Route::get('book/getDownload/{id}', [BooksController::class, 'getDownload'])->name('book.getDownload');
-
-
-
-// Route::get('books/getDownload/{id}', [AdminBooksController::class, 'getDownload']);
-
-
-
+Route::get('books/search', [AdminBooksController::class, 'search'])->middleware(['auth:admin', 'verified'])->name('books.search');
 
 
 require __DIR__.'/adminauth.php';

@@ -49,6 +49,10 @@
                             <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update size book</label>
                             <input type="number" name="size" value="{{ $book->size }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="size book" required />
                         </div>
+                        <div class="mb-5 w-full ">
+                            <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update document Id</label>
+                            <input type="text" name="documentId" value="{{ $book->documentId }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="document Id" required />
+                        </div>
                         <div class="mb-5 w-full">
                             <label for="description" class="font-bold w-full block mb-2 text-sm  text-gray-900 dark:text-white">Update description book</label>
                             <textarea id="description" name="description" rows="4" class="block p-2.5 w-full h-20 t-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="description book ...">

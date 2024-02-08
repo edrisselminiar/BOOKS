@@ -39,6 +39,7 @@ class AdminBooksController extends Controller
             'type' => 'required',
             'number' => 'required',
             'size' => 'required',
+            'documentId' => 'required',
         ]);
         
         $image = $request->file('img');
@@ -56,6 +57,7 @@ class AdminBooksController extends Controller
             'type' => $request->input('type'),
             'number' => $request->input('number'),
             'size' => $request->input('size'),
+            'documentId' => $request->input('documentId'),
             'img' => $new_name,
             'pdf' => $new_name1,
         );
@@ -110,6 +112,7 @@ class AdminBooksController extends Controller
             'type' => 'required',
             'author' => 'required',
             'size' => 'required',
+            'documentId' => 'required',
             'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'pdf' => 'nullable|file|mimes:pdf|max:10240',
 
@@ -135,6 +138,7 @@ class AdminBooksController extends Controller
             'type' => $request->input('type'),
             'author' => $request->input('author'),
             'number' => $request->input('number'),
+            'documentId' => $request->input('documentId'),
             'img' => $new_name,
             'pdf' => $new_name1,
         );
