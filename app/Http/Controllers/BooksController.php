@@ -58,10 +58,25 @@ class BooksController extends Controller
      */
     public function show(book $book)
     {
-        $book = Book::with('reviews')->find($book->id);
+        $book = Book::find($book->id);
+        // $reviews = $book->reviews()->paginate(4);
+        // $reviews = $book->reviews()->get();
+        $reviews = $book->reviews()->orderByDesc('user_id', auth()->id())->paginate(4);
+
         $averageRating = $book->averageRating();
-        
-        return view('showbook',compact('book' , 'averageRating'));
+        // $reviews = $reviews->sortByDesc(function ($review, $key) {
+        //     return $review->user_id == auth()->id() ? 1 : 0;
+        // })->paginate(4);
+        // $book = Book::with('reviews')->find($book->id);
+        // $book = Book::with(['reviews' => function ($query) {
+        //     $query->paginate(4);
+        // }])->find($book->id);
+        // $book = Book::find($book->id);
+        // $reviews = $book->reviews()->paginate(4);
+
+        // $averageRating = $book->averageRating();
+        // 
+        return view('showbook',compact('book' , 'averageRating', 'reviews'));
 
     }
 

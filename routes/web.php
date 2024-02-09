@@ -38,8 +38,11 @@ use Illuminate\Support\Facades\Route;
     Route::post('/books/{book}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
     // Route::post('/books/{book}/reviews', 'ReviewController@store')->name('reviews.store');
 
-
-
+    Route::delete('/reviews/{review}',  [ReviewController::class, 'destroy'])->name('reviews.destroy');
+    
+    // Route::get('/reviews/edit/{review}',   [ReviewController::class, 'edit'])->name('reviews.edit');
+    // Route::delete('/reviews/{review}',  [ReviewController::class, 'destroy'])->name('reviews.destroy');
+    Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
 
 
 

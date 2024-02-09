@@ -18,7 +18,7 @@
           <li><a class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400" href="#">Documentation</a></li>       
           <li><a class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400" href="#">{{ __('public.title') }}</a></li>       
           <li>
-            <a class=" ml-2 lg:ml-0  block px-0 py-1 border-b-2 border-transparent lg:p-2 hover:border-indigo-400" href="#">                 
+            <a class=" ml-2 lg:ml-0  block px-0 py-1 border-b-2 border-transparent  hover:border-indigo-400" href="#">                 
                 <select id="countries" class="outline-none border-none my-1 pl-4" onchange="window.location.href=this.value;">
                   <option selected>{{ __('language') }}</option>
                   <option value="{{ url('setlocale/en') }}">{{ __('English') }} </option>
