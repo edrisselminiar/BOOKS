@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite('resources/css/tailwind.css')
-  @vite(['resources/css/app.css','resources/js/app.js'])
+ 
   <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  @vite('resources/css/tailwind.css')
+
+   @vite(['resources/css/app.css','resources/js/app.js'])
+
 
  
 </head>
 <body class="antialiased  bg-gray-200">
 
-  <header class="fixed w-[100%] flex flex-wrap items-center px-6 py-2 bg-white lg:px-16 lg:py-0 z-50">
+  <header class="fixed w-[100%] flex flex-wrap items-center px-6 py-2 bg-white lg:px-16 lg:py-0 z-50"  data-aos="zoom-in-up"   >
     @include('resourses.navbar')
   </header>
 
@@ -37,7 +41,7 @@
             </div>
         </form>           
 
-        <div  class="mt-3 sm:mt-4 md:mt-10 lg:mt-16 xl:mt-10 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6  gap-4">
+        <div  class="mt-3 sm:mt-4 md:mt-10 lg:mt-16 xl:mt-10 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6  gap-4" data-aos="zoom-in-down" data-aos-duration="2000" >
 
           @foreach ($books as $book)      
                 <div class="flex flex-col overflow-hidden rounded-lg shadow-xl shadow-inherit bg-white  transform transition duration-500 ease-in-out hover:scale-105">
@@ -45,7 +49,7 @@
                   <img src="/books/img/{{ $book->img }}"  class="aspect-w-16 aspect-h-9 w-full object-cover rounded-md" alt=""> 
                   </div>
                   <div class="flex flex-1 flex-col justify-between bg-white mx-2 ">
-                    <div class="flex-1 flex justify-between mt-1 pb-2 sm:pb-0 md:pb-2 lg:pb-0 xl:pb-0">
+                    <div class="flex-1 flex justify-between mt-1 pb-2 sm:pb-0 md:pb-2 lg:pb-0 xl:pb-0" data-aos="fade-down" data-aos-duration="1200" >
                       <a type="button" href="{{ route('book.show',$book->id) }}" class="flex">
                           <p class="text-xs sm:text-xs md:text-xs lg:text-xs     font-semibold text-gray-900  my-1 mx-1 h-full">
                               {{ $book->title }}</p>
@@ -110,6 +114,11 @@
       </div>
     </div>
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
 
 </body>

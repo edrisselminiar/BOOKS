@@ -1,6 +1,6 @@
 
 
-<div class="flex items-center justify-between flex-1">
+<div class="flex items-center justify-between flex-1" >
       <a href="{{ route('/') }}" >
         <img src="{{ asset('IMG/Book Logo1.svg') }}" alt="My Image" class=" w-36">
       </a>

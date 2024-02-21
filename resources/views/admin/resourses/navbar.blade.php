@@ -1,4 +1,4 @@
-<div class="py-2 px-6 bg-white flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+<div class="py-2 px-6 bg-white flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30" data-aos="fade-up">
             <button type="button" class="text-lg text-gray-600 sidebar-toggle">
                 <i class="ri-menu-line"></i>
             </button>

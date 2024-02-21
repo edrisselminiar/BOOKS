@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="{{ asset('css/rating.css') }}">
   @vite('resources/css/tailwind.css')
   @vite(['resources/css/app.css','resources/js/app.js'])
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 <body class="antialiased  bg-gray-200 ">
 
@@ -19,7 +21,7 @@
 
     <div class="grid lg:gap-8 lg:grid-cols-2 lg:items-center  bg-white rounded-xl">
         
-        <div aria-hidden="true" class=" lg:mt-0 p-2">
+        <div aria-hidden="true" class=" lg:mt-0 p-2"   data-aos="fade-right"  data-aos-duration="1400">
             <img src="/books/img/{{ $book->img }}" width="500"  class="mx-auto rounded-lg shadow-lg dark-bg-gray-500" style="color:transparent"> 
             
             @if ($averageRating == 5)
@@ -141,7 +143,7 @@
 
 
       <div>
-        <div class=" space-y-12 text-nowrap text-center ">
+        <div class=" space-y-12 text-nowrap text-center " data-aos="fade-left"  data-aos-duration="1400">
             <div class="ml-4 mt-4">
               <h4 class="text-lg font-medium leadi ">{{ __('public.Book_name') }} : <span class=" text-gray-700">{{ $book->title }}</span></h4>
             </div>
@@ -182,7 +184,8 @@
     </div>
 
           </div>
-            <div class="w-full bg-white rounded-lg p-4">
+            <div class="w-full bg-white rounded-lg p-4" >
+                
               @foreach ($reviews as $review)
                     <article class="mt-2 mb-6" >
                         <div class="flex items-center mb-4">
@@ -445,6 +448,10 @@
 
 
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
 
 

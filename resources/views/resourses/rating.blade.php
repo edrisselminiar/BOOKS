@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block" data-aos="fade-left"  data-aos-duration="1400">
 
    
     <div>
