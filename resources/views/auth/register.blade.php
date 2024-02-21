@@ -19,14 +19,14 @@
   <div class=" bg-white flex rounded-2xl shadow-lg max-w-4xl p-3 items-center">
     <!-- image -->
     <div class="md:block hidden w-1/2">
-      <img class="rounded-2xl" src="https://images.unsplash.com/photo-1616606103915-dea7be788566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80">
+      <img class="rounded-2xl" src="books/img/1421949146.png" alt="" style="min-height: 50vh;">
     </div>
 
 
     <!-- form -->
     
     <div class="md:w-2/3  sm:w-3/3 px-8 md:px-8">
-      <h2 class="font-bold text-2xl text-[#002D74]">Sign Up</h2>
+      <h2 class="font-bold text-2xl text-[#002D74]">{{ __('public.Sign_Up') }}</h2>
 
       <!-- <form action="" > -->
 
@@ -54,7 +54,7 @@
 
         <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
-        <button class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">Sign Up</button>
+        <button class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">{{ __('public.Sign_Up') }}</button>
       </form>
 
     
@@ -64,10 +64,10 @@
       </div>
 
       <div class="mt-3 text-xs flex justify-between items-center text-[#002D74]">
-        <p>I have an account?</p>
+        <p>{{ __('public.I_have_an_account') }}?</p>
         <a href="{{ route('login') }}">
         <button class="sm:px-5 sm:py-3  py-1 px-2 bg-[#002D74] text-white border rounded-xl hover:scale-110 duration-300">
-            Sign In
+        {{ __('public.Sign_In') }}
         </button></a>
       </div>
     </div>

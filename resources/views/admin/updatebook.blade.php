@@ -25,9 +25,15 @@
                 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden  ">
                     
                
-                    <form class="px-8 mt-2  mb-10 w-full" action="{{ route('books.update',$book->id) }}" method="POST" enctype="multipart/form-data" >
+                    <form class="px-8 mt-2  mb-10 w-full" action="{{ route('books.update',$book->id) }}" method="POST"  enctype="multipart/form-data" >
                             @csrf
                             @method('PUT')
+
+
+
+                        <div class=" hidden ">
+                            <input type="text" name="id" value="{{ $book->id }}"  class=" bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name book" required />
+                        </div>
 
                         <div class="mb-5 w-full ">
                             <label for="text" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Update name book</label>
@@ -66,7 +72,7 @@
                                 <img src="/books/img/{{ $book->img }}" width="100px" class=" rounded-lg">
                                 <!-- this in  -->
                             </div>
-                            <input value="{{ $book->img }}" name="img"  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" />
+                            <input value="{{ $book->img }}" name="img"  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" enctype="multipart/form-data"  />
                             <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Upload Book cover image</div>   
                             
 
@@ -77,7 +83,7 @@
                             <div class="mx-2 my-2 text-sm text-gray-500 dark:text-gray-300">
                                 {{ $book->pdf }}
                             </div>
-                            <input name="pdf" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                            <input name="pdf" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" enctype="multipart/form-data" />
                             <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Upload the book pdf</div>
 
                         </div>

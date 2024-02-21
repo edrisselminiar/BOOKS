@@ -86,66 +86,62 @@ class AdminBooksController extends Controller
 
     }
 
+
+
+
+
+
+
+
+
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-       
-        $book = Book::find($id);
 
-        // Delete the old image file
-        unlink(public_path('books/img/' . $book->img));
+     public function update(Request $request, string $id)
+{
+    $book = Book::find($id);
 
-        // Delete the old pdf file
-        unlink(public_path('books/pdf/' . $book->pdf));
+    unlink(public_path('books/img/' . $book->img));
 
-        $book->delete();
+    unlink(public_path('books/pdf/' . $book->pdf));
 
-        
+    $request->validate([
+        'id' => 'required',
+        'title' => 'required',
+        'description' => 'required',
+        'number' => 'required',
+        'type' => 'required',
+        'author' => 'required',
+        'size' => 'required',
+        'documentId' => 'required',
+        'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
+        'pdf' => 'nullable|file|mimes:pdf',
+    ]);
+  
+    $image = $request->file('img');
+    $new_name = rand().'.'.$image->getClientOriginalExtension();
+    $image->move(public_path('books/img'), $new_name);
 
+    $pdf = $request->file('pdf');
+    $new_name1 = rand().'.'.$pdf->getClientOriginalExtension();
+    $pdf->move(public_path('books/pdf'), $new_name1);
+ 
+    $book->update([
+        'id' => $request->input('id'),
+        'title' => $request->input('title'),
+        'description' => $request->input('description'),
+        'size' => $request->input('size'),
+        'type' => $request->input('type'),
+        'author' => $request->input('author'),
+        'number' => $request->input('number'),
+        'documentId' => $request->input('documentId'),
+        'img' => $new_name,
+        'pdf' => $new_name1,
+    ]);
+    return redirect()->route('books.index')->withSuccess('Done');
+}
 
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'number' => 'required',
-            'type' => 'required',
-            'author' => 'required',
-            'size' => 'required',
-            'documentId' => 'required',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'pdf' => 'nullable|file|mimes:pdf|max:10240',
-
-        ]);
-       
-
-
-        
-
-        
-        $image = $request->file('img');
-        $new_name = rand().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('books/img'), $new_name);
-
-        $pdf = $request->file('pdf');
-        $new_name1 = rand().'.'.$pdf->getClientOriginalExtension();
-        $pdf->move(public_path('books/pdf'), $new_name1);
-
-        $form_data = array(
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'size' => $request->input('size'),
-            'type' => $request->input('type'),
-            'author' => $request->input('author'),
-            'number' => $request->input('number'),
-            'documentId' => $request->input('documentId'),
-            'img' => $new_name,
-            'pdf' => $new_name1,
-        );
-        Book::create($form_data);
-        return redirect()->route('books.index')->withSuccess('Done');
-        
-    }
 
 
     /**

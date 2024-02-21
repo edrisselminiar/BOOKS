@@ -1,7 +1,7 @@
 
 
 <div class="flex items-center justify-between flex-1">
-      <a href="{{ route('homme') }}" >
+      <a href="{{ route('/') }}" >
         <img src="{{ asset('IMG/Book Logo1.svg') }}" alt="My Image" class=" w-36">
       </a>
     </div>
@@ -13,16 +13,15 @@
     <div class="hidden w-full lg:flex lg:items-center lg:w-auto" id="menu">
       <nav class="">
         <ul class="items-center justify-between pt-4 text-base text-gray-700 lg:flex lg:pt-0">
-          <li><a href="{{ url('/book') }}"  class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400">Books</a></li>
-          <li><a class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400" href="#">@lang('public.title')</a></li>
-          <li><a class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400" href="#">Documentation</a></li>       
-          <li><a class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400" href="#">{{ __('public.title') }}</a></li>       
+          <li><a href="{{ url('/book') }}"  class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400">{{ __('public.Books') }}</a></li>
+          <li><a class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400" href="#my-footer">{{ __('public.My_accounts') }} </a></li>
+          <li><a class="ml-6 lg:ml-0 block px-0 py-3 border-b-2 border-transparent lg:p-4 hover:border-indigo-400" href="https://www.linkedin.com/in/driss-elminiar-22537723a/" >{{ __('public.Linkedin') }}</a></li>             
           <li>
             <a class=" ml-2 lg:ml-0  block px-0 py-1 border-b-2 border-transparent  hover:border-indigo-400" href="#">                 
                 <select id="countries" class="outline-none border-none my-1 pl-4" onchange="window.location.href=this.value;">
                   <option selected>{{ __('language') }}</option>
                   <option value="{{ url('setlocale/en') }}">{{ __('English') }} </option>
-                  <option value="{{ url('setlocale/ar') }}">{{ __('Arabic') }}</option>
+                  <option value="{{ url('setlocale/ar') }}">{{ __('العربية') }}</option>
                   <option value="{{ url('setlocale/fr') }}">{{ __('French') }}</option>
                 </select>
             </a>
@@ -50,7 +49,7 @@
                                                 <x-dropdown-link :href="route('logout')"
                                                         onclick="event.preventDefault();
                                                                     this.closest('form').submit();">
-                                                    {{ __('Log Out') }}
+                                                    {{ __('public.Log_Out') }}
                                                 </x-dropdown-link>
                                           </form>
                                   
@@ -61,14 +60,14 @@
 
                         <a href="{{ route('login') }}" >
                           <button class="px-4 py-2 mx-2 ml-24  text-black rounded">
-                            Sign In
+                          {{ __('public.Sign_In') }}
                           </button>
                         </a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" >
                               <button class="px-4 py-1 mx-2 mr-0  text-white bg-blue-500 rounded mfont-bold hover:bg-blue-700">
-                                Sign Up
+                              {{ __('public.Sign_Up') }}
                               </button>
                             </a>
                         @endif

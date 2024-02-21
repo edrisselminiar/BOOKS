@@ -8,7 +8,7 @@
                             <form class="" action="{{ route('reviews.store', $book->id) }}" method="POST">
                                 @csrf
                                 <div class="mt-4">
-                                    <p class=" font-bold ">Add Review</p>
+                                    <p class=" font-bold ">{{ __('public.Add_Review') }}</p>
                                 </div>
                                 <div>
                                     <div class="rate ml-6 ">
@@ -25,9 +25,9 @@
                                     </div>
                                 </div>
                                 <div class="mt-4 mx-2">
-                                    <textarea id="message" name="review" rows="2" class="block  mt-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." required></textarea>
+                                    <textarea id="message" name="review" rows="2" class="block  mt-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="{{ __('public.Leave_a_comment') }}" required></textarea>
                                 </div>
-                                <button type="submit"  class=" bg-gray-500 hover:bg-gray-600 text-white font-bold focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm px-4 py-2 my-2  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> Add Rating</button>
+                                <button type="submit"  class=" bg-gray-500 hover:bg-gray-600 text-white font-bold focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm px-4 py-2 my-2  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{ __('public.Add') }}</button>
                             </form>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                     <form class="" action="{{ route('reviews.store', $book->id) }}" method="POST">
                         @csrf
                         <div class="mt-4">
-                            <p class=" font-bold ">Add Review</p>
+                            <p class=" font-bold ">{{ __('public.Add_Review') }}</p>
                         </div>
                         <div>
                             <div class="rate ml-6 ">
@@ -62,10 +62,10 @@
                             </div>
                         </div>
                         <div class="mt-4 mx-2">
-                            <textarea id="message" name="review" rows="2" class="block  mt-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." required></textarea>
+                            <textarea id="message" name="review" rows="2" class="block  mt-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="{{ __('public.Leave_a_comment') }}" required></textarea>
                         </div>
                         <div class="justify-end items-end text-end">
-                            <button type="submit"  class="  bg-gray-500 hover:bg-gray-600 text-white font-bold focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm mr-2 px-4 py-2 my-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> Add Rating</button>
+                            <button type="submit"  class="  bg-gray-500 hover:bg-gray-600 text-white font-bold focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm mr-2 px-4 py-2 my-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{ __('public.Add') }}</button>
                         </div>
                     </form>
                 </div>

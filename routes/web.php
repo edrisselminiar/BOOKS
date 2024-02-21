@@ -5,6 +5,7 @@ use App\Http\Controllers\CbookController;
 use App\Http\Controllers\AdminBooksController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\homecontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+    Route::get('/', [homecontroller::class, 'index'])->name('/');
+    Route::post('/suggest/book', [homecontroller::class, 'suggest'])->name('suggest.book');
+
+
     Route::controller(BooksController::class)->group(function () {
-        Route::get('/', function () {
-            return view('welcome');
-        });
+
+
+      
+
+
     Route::get('/book','index');
     Route::get('/book/{book}','show');
     Route::resource('/book', BooksController::class);
@@ -30,7 +38,7 @@ use Illuminate\Support\Facades\Route;
     });
 
     Route::get('/searchbook', [CbookController::class, 'search'])->name('searchbook');
-    Route::get('/homme', [CbookController::class, 'index'])->name('homme');
+    // Route::get('/', [CbookController::class, 'index'])->name('/');
     Route::get('setlocale/{locale}', [CbookController::class, 'setLocale']);
     // Route::get('setlocale/{locale}', 'App\Http\Controllers\LocaleController@setLocale');
     

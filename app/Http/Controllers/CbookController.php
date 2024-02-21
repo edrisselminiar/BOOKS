@@ -14,7 +14,7 @@ class CbookController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');  
-        $book = Book::where('title', 'like', '%'.$search.'%')->paginate(12); 
+        $book = Book::where('title', 'like', '%'.$search.'%')->where('id', '!=', 71)->paginate(12); 
         return view('search', ['books' => $book]); 
     }
 

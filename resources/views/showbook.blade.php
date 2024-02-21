@@ -14,8 +14,6 @@
       @include('resourses.navbar')
   </header>
 
-
-
   <section class="pt-16 ">
   <div class="container max-w-xXl p-6 mx-auto space-y-6 lg:px-8 lg:max-w-7xl ">
 
@@ -139,102 +137,43 @@
                     <p class="ms-1 text-lg font-medium text-gray-500 dark:text-gray-400">{{ number_format($averageRating, 1) }}</p>
                 </div>
             @endif
-  
-
-
-
         </div>
+
+
       <div>
         <div class=" space-y-12 text-nowrap text-center ">
             <div class="ml-4 mt-4">
-              <h4 class="text-lg font-medium leadi ">Book name : <span class=" text-gray-700">{{ $book->title }}</span></h4>
+              <h4 class="text-lg font-medium leadi ">{{ __('public.Book_name') }} : <span class=" text-gray-700">{{ $book->title }}</span></h4>
             </div>
             <div class="ml-4 mt-4">
-              <h4 class="text-lg font-medium leadi ">Author of the book : <span class=" text-gray-700"> {{ $book->author }}</span></h4>
+              <h4 class="text-lg font-medium leadi ">{{ __('public.Author_of_the_book') }} : <span class=" text-gray-700"> {{ $book->author }}</span></h4>
             </div>
             <div class="ml-4 mt-4">
-              <h4 class="text-lg font-medium leadi ">Book type : <span class=" text-gray-700"> {{ $book->type }}</span></h4>
+              <h4 class="text-lg font-medium leadi ">{{ __('public.Book_type') }} : <span class=" text-gray-700"> {{ $book->type }}</span></h4>
             </div>
             <div class="ml-4 mt-4">
-              <h4 class="text-lg font-medium leadi ">Number of book pages : <span class=" text-gray-700"> {{ $book->number }}</span></h4>
+              <h4 class="text-lg font-medium leadi ">{{ __('public.Number_of_book_pages') }} : <span class=" text-gray-700"> {{ $book->number }}</span></h4>
             </div>
             <div class="ml-4 mt-4">
-              <h4 class="text-lg font-medium leadi ">Book size : <span class=" text-gray-700"> {{ $book->size }}</span></h4>
+              <h4 class="text-lg font-medium leadi ">{{ __('public.Book_size') }} : <span class=" text-gray-700"> {{ $book->size }} MO</span></h4>
             </div>
-            <div class="ml-4 mt-4">
-              <h4 class="text-lg font-medium leadi ">Book description : <span class=" text-gray-700"> {{ $book->description }}</span></h4>
-            </div>
+            <!-- <div class="ml-4 mt-4">
+              <h4 class="text-lg font-medium leadi ">{{ __('public.Book_description') }} : <span class=" text-gray-700"> {{ $book->description }}</span></h4>
+            </div> -->
             
             <div class=" mt-4 pb-3"> 
               <a href="{{ route('book.getDownload',$book->id) }}" class=" bg-gray-300 hover:bg-gray-600 text-gray-800 font-bold py-2 pl-10 pr-10 rounded inline-flex items-center ">
                   <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-                  <span>Download</span>
+                  <span>{{ __('public.Download') }}</span>
               </a>
             
               <a href="{{ route('book.readonline',$book->id) }}" class=" bg-gray-300 hover:bg-gray-600 text-gray-800 font-bold py-2 pl-10 pr-10 rounded inline-flex items-center ">
-                  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-                  <span>read book</span>
+                  <span>{{ __('public.read_the_book') }}</span>
               </a>
             
-            </div>
-                  <!-- @auth
-
-                            @php
-                    $userReview = $book->reviews->where('user_id', auth()->id())->first();
-                @endphp
-
-                @if(!$userReview)
-                    <form action="{{ route('reviews.store', $book->id) }}" method="POST">
-                        @csrf
-                        <textarea name="review" required></textarea>
-                        <input type="number" name="rating" min="1" max="5" required>
-                        <button type="submit">Submit Review</button>
-                    </form>
-                    @endif
-                    @endauth
-
-
-
-            <div>
-
-             @if($averageRating)
-                  <h2>Average Rating: {{ $averageRating }}</h2>
-                @endif
-                  
-                  
-                  @foreach ($book->reviews as $review)
-                  <div>
-                    <h3>{{ $review->user->name }}</h3>
-                    <p>{{ $review->review }}</p>
-                    <p>Rating: {{ $review->rating }}</p>
-                  </div>
-                  @endforeach
-
-                  
-
-            </div> -->
-
-              
-             
-
-
-            
-
-
-  
-              
-              
-              
-          
-
+        </div>
         </div> 
-
-       
-
-
-      </div> 
-
-
+    </div> 
 
 
 
@@ -252,16 +191,12 @@
                         </div>
                         <div class="font-medium dark:text-white flex justify-between w-full">
                             <p>{{ $review->user->name }}<time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
-                            @if (auth()->id() == $review->user_id)
+                                @if (auth()->id() == $review->user_id)
                                 <div class="flex mr-4">
 
-
-
-
-
                                 <form action="{{ route('reviews.update', $review) }}" method="POST">
-    @csrf
-    @method('PUT')
+                                @csrf
+                                @method('PUT')
                                
                                     <a  type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-sm h-8 py-0 px-2 bg-gray-300 hover:bg-gray-500 text-gray-800 rounded inline-flex items-center">
                                         edit
@@ -314,24 +249,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                
-
-
                                     <form action="{{ route('reviews.destroy', $review) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -359,16 +276,10 @@
                                                 </div>
                                             </div>
                                     </from>
-
-
-                                  
-
-
-
                                 </div>
                             @endif
                         </div>
-                        </div>                
+                        </div>         
                         @if ( $review->rating  == 5)
                               <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse rating3 ml-1 mt-3 ">
                                   <svg class="w-6 h-6 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
@@ -467,42 +378,69 @@
                         <p class="mb-2 text-lg mt-4 text-gray-500 dark:text-gray-400">{{ $review->review }}</p>
                     </article><hr>
               @endforeach
-
-              <div class="mt-4 ml-2 mr-2">
+            <div class="mt-4 ml-2 mr-2">
                  {{ $reviews->links('pagination::tailwind') }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
             </div>
           </div> 
-
-
         </div>
 </section>
 
 
 
+<footer class=" bg-gray-300 text-center" id="my-footer">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="md:flex md:justify-between">
+          <div class="mb-6 md:mb-0">
+              <a href="{{ route('/') }}" >
+                <img src="{{ asset('IMG/Book Logo1.svg') }}" alt="My Image" class=" w-48 my-4 mx-4">
+            </a>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{{ __('public.other') }}</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="{{ url('/book') }}"  class="hover:underline">{{ __('public.All_Books') }}</a>
+                      </li>
+                      <li class="mb-4">
+                        <a href="{{ route('book.getDownload',71) }}" class="hover:underline"> {{ __('public.my_CV') }}</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{{ __('public.Follow_me') }}</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="https://github.com/edrisselminiar" class="hover:underline ">{{ __('public.Github') }}</a>
+                      </li>
+                      <li>
+                          <a href="https://www.linkedin.com/in/driss-elminiar-22537723a/" class="hover:underline">{{ __('public.Linkedin') }}</a>
+                      </li>
+                  </ul>
+              </div>
+              
+          </div>
+      </div>
+
+      <hr class="my-6 border-gray-400 lg:my-8 text-center" />
+      <div class="">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <span class="text-gray-800"> Driss Elminiar</span> 
+          </span>
+      </div>
+    </div>
+</footer>
 
 
 
 
 
 
-                                                   
-                                                  
+
+
+
+
+
 
 
 
