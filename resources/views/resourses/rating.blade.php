@@ -1,7 +1,7 @@
-<div class="block" data-aos="fade-left"  data-aos-duration="1400">
+<div class="block" >
 
    
-    <div>
+   
                 @guest
                     <div class="mb-6 bg-gray-200 text-center items-center justify-center   my-4 mx-4 rounded-lg">
                         <div class="row">

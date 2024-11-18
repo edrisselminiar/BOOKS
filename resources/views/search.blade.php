@@ -11,7 +11,7 @@
 </head>
 <body class="antialiased  bg-gray-200">
 
-  <header class="fixed w-[100%] flex flex-wrap items-center px-6 py-2 bg-white lg:px-16 lg:py-0 z-50">
+  <header class="fixed w-[100%] flex flex-wrap items-center px-6 py-2 bg-white lg:px-16 lg:py-0 z-50" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">
       @include('resourses.navbar')
   </header>
 
@@ -50,7 +50,7 @@
                   <img src="/books/img/{{ $book->img }}"  class="aspect-w-16 aspect-h-9 w-full object-cover rounded-md" alt=""> 
                   </div>
                   <div class="flex flex-1 flex-col justify-between bg-white mx-2">
-                    <div class="flex-1 flex justify-between mt-1 pb-2 sm:pb-0 md:pb-2 lg:pb-0 xl:pb-0 "  data-aos="fade-down" data-aos-duration="1200" >
+                    <div class="flex-1 flex justify-between mt-1 pb-2 sm:pb-0 md:pb-2 lg:pb-0 xl:pb-0 "  >
                       <a type="button" href="{{ route('book.show',$book->id) }}" class="flex" >
                           <p class="text-xs sm:text-xs md:text-xs lg:text-xs     font-semibold text-gray-900  my-1 mx-1 h-full">
                               {{ $book->title }}</p>
@@ -117,6 +117,8 @@
 </footer>
 
 
+
+<script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();

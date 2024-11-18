@@ -113,6 +113,7 @@
     </main>
     <!-- end: Main -->
 
+    <script src="https://cdn.tailwindcss.com"></script>
 
 <script src="{{ asset('admincss/dist/js/script.js') }}"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
