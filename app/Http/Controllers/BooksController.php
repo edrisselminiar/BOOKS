@@ -24,9 +24,29 @@ class BooksController extends Controller
 
     public function getDownload($id)
     {
-        $book = Book::findOrFail($id);
-        $filePath = public_path('books/pdf/' . $book->pdf);
-        return response()->download($filePath, $book->pdf);
+                         // Find the book or throw a 404 error
+            $book = Book::findOrFail($id);
+
+            // Construct the full file path
+            $filePath = public_path('books/pdf/' . $book->pdf);
+
+            // Check if the file exists
+            if (!file_exists($filePath)) {
+                abort(404, 'PDF file not found');
+            }
+
+            // Validate the file is readable
+            if (!is_readable($filePath)) {
+                abort(403, 'PDF file is not readable');
+            }
+
+            // Stream the download
+            return response()->download($filePath, $book->pdf, [
+                'Content-Type' => 'application/pdf',
+            ]);
+                // $book = Book::findOrFail($id);
+                // $filePath = public_path('books/pdf/' . $book->pdf);
+                // return response()->download($filePath, $book->pdf);
 
     }
 
